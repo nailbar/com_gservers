@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="Game Servers">
+        <message>Game Server listing</message>
+    </layout>
+    <fields name="params">
+        <fieldset name="request">
+            <field name="servertype" type="text" default="" size="40" label="Server type"
+                description="Filters the listing to specified server type" />
+        </fieldset>
+    </fields>
+</metadata>

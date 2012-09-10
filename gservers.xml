@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+    <name>GServers</name>
+    <creationDate>2012</creationDate>
+    <author>Martin Wikström</author>
+    <authorEmail>marrewikstro@gmail.com</authorEmail>
+    <authorUrl>http://tagfactory.dyndns.org/</authorUrl>
+    <copyright>Provided As Is</copyright>
+    <license>No restrictions</license>
+    <version>0.1.3</version>
+
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>gservers.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
+    </files>
+
+    <administration>
+        <menu>GServers</menu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>gservers.php</filename>
+        </files>
+    </administration>
+</extension>
