@@ -50,16 +50,31 @@ function gservers_getList(sorting) {
 
 // Output row
 function gservers_makerow(data) {
+    
+    // Translate game names
+    var servertype = "Other";
+    switch(data.type) {
+    case "left4dead2": servertype = "Left 4 Dead 2"; break;
+    case "csgo": servertype = "CS: Global Offensive"; break;
+    case "tf": servertype = "Team Fortress"; break;
+    case "cstrike": servertype = "Counter Strike"; break;
+    case "nucleardawn": servertype = "Nuclear Dawn"; break;
+    case "left4dead": servertype = "Left 4 Dead"; break;
+    }
+    
+    // Get server online status
     var status = "online";
     if(data.restartsend != "no") status = "offline";
     if(data.goingdown != "no") status = "offline";
-    html = "<tr>\n";
-    html += "    <td>" + status + "</td>\n";
-    html += "    <td>" + data.type + "</td>\n";
-    html += "    <td>" + data.servername + "</td>\n";
-    html += "    <td>" + data.currentmap + "</td>\n";
-    html += "    <td>" + parseInt(data.currentplayers, 10) + " / " + parseInt(data.maxplayers, 10) + "</td>\n";
-    html += "    <td><a href='steam://connect/" + data.ip + ":" + data.port + "'>Connect</a></td>\n";
+    
+    // Generate row
+    html = "<tr class='gservers_servers_row'>\n";
+    html += "    <td class='gservers_status_" + status + "'>" + status + "</td>\n";
+    html += "    <td class='gservers_type_" + data.type + "'>" + servertype + "</td>\n";
+    html += "    <td class='gservers_servername'>" + data.servername + "</td>\n";
+    html += "    <td class='gservers_currentmap'>" + data.currentmap + "</td>\n";
+    html += "    <td class='gservers_players'>" + parseInt(data.currentplayers, 10) + " / " + parseInt(data.maxplayers, 10) + "</td>\n";
+    html += "    <td class='gservers_connect'><a href='steam://connect/" + data.ip + ":" + data.port + "'>Connect</a></td>\n";
     html += "</tr>";
     return html;
 }
