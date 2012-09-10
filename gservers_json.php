@@ -26,7 +26,13 @@ case "players": $sorting = " ORDER BY currentplayers DESC"; break;
 // Handle filters
 $filter = "";
 if(isset($_GET['filter'])) if(trim($_GET['filter'])) {
-    $filter = sprintf(" WHERE type='%s'", $mysqli->real_escape_string($_GET['filter']));
+    $filters = array();
+    foreach(explode(",", $_GET['filter']) as $f) if(trim($f)) {
+        $filters[] = $mysqli->real_escape_string(trim($f));
+    }
+    if(count($filters)) {
+        $filter = sprintf(" WHERE type IN('%s')", implode("','", $filters));
+    }
 }
 
 // Query for content
