@@ -9,17 +9,17 @@ jimport('joomla.application.component.view');
 /**
  * HTML View class for the GServers Component
  */
-class GServersViewGServers extends JView
-{
-    // Overwriting JView display method
-    function display($tpl = null) 
-    {
-        $itemid = JRequest::getint( 'Itemid' );
-        die($itemid);
-//         $menu = new mosMenu( $database );
-//         $menu->load( $Itemid );
-//         $params = new mosParameters( $menu->params );
+class GServersViewGServers extends JView {
 
+    // Overwriting JView display method
+    function display($tpl = null) {
+    
+        // Get menu parameter
+        $itemid = JRequest::getint( 'Itemid' );
+        $menu =   &JSite::getMenu();
+        $item = $menu->getItem($itemid);
+        $this->param_servertype = $item->params->get('servertype');
+        
         // Display the view
         parent::display($tpl);
     }

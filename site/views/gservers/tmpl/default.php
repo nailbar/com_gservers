@@ -7,7 +7,7 @@ defined('_JEXEC') or die('Restricted access');
 <h1>Game Server overview</h1>
 <table id='game_server_table'><tr><td>Loading...</td></tr></table>
 <script type='text/javascript'>
-var gservers_filter = "";
+var gservers_filter = "<?php echo htmlspecialchars($this->param_servertype); ?>";
 var gservers_lastsort = "";
 var gservers_inverse = false;
 function gservers_getList(sorting) {
