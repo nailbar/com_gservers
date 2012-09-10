@@ -18,7 +18,8 @@ class GServersViewGServers extends JView {
         $itemid = JRequest::getint( 'Itemid' );
         $menu =   &JSite::getMenu();
         $item = $menu->getItem($itemid);
-        $this->param_servertype = $item->params->get('servertype');
+        if($item) $this->param_servertype = $item->params->get('servertype');
+        else $this->param_servertype = "";
         
         // Display the view
         parent::display($tpl);
